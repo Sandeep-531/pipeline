@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-page-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: html-page
+  template:
+    metadata:
+      labels:
+        app: html-page
+    spec:
+      containers:
+      - name: html-page
+        image: <your-dockerhub-username>/html-page:latest
+        ports:
+        - containerPort: 80
